@@ -1,1 +1,1 @@
-## viix-ai - AI-tool implemented web-search, based on text embeddings
+## viix.ai - AI web-tool implemented AI-search, based on text embeddings
