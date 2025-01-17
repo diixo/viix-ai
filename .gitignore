@@ -12,6 +12,7 @@ ENV/
 env.bak/
 
 # Temporary static directory
-core/static/
+#core/static/
+
 *.tar
 *.db-journal
