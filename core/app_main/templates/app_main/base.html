@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="all">
+
+
+        {% block meta %}
+        {% endblock %}
+
+        {% load static %}
+        <link rel="apple-touch-icon" href="{% static 'app_main/assets/img/apple-touch-icon.png' %}" sizes="180x180">
+        <link rel="icon" href="{% static 'app_main/assets/img/favicon-32x32.png' %}" type="image/png" sizes="32x32">
+        <link rel="icon" href="{% static 'app_main/assets/img/favicon-16x16.png' %}" type="image/png" sizes="16x16">
+
+        {% load static %}
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'app_main/assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'app_main/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+
+        <!-- Slich Slider -->
+        {% load static %}
+        <!-- Icofont -->
+        <link rel="stylesheet" href="{% static 'app_main/assets/vendor/icofont/icofont.min.css' %}">
+        <!-- Font Icons -->
+        <link rel="stylesheet" href="{% static 'app_main/assets/vendor/icons/css/materialdesignicons.min.css' %}">
+        <!-- Bootstrap extended styles-v5.3 -->
+        <link rel="stylesheet" href="{% static 'app_main/assets/vendor/bootstrap-ext/docs.css' %}">
+        <!-- Material Icons -->
+        <link rel="stylesheet" href="{% static 'app_main/assets/icons/materialicons/materialicons.css' %}">
+        <!-- Fontawesome Icons -->
+        <link rel="stylesheet" href="{% static 'app_main/assets/icons/webfonts/fontawesome.css' %}">
+        <!-- Custom css -->
+        <link rel="stylesheet" href="{% static 'app_main/assets/css/styles.css' %}">
+    </head>
+
+    <body>
+
+        <main>
+        {% block content %}
+        {% endblock %}
+        </main>
+
+    {% load static %}
+    <script src="{% static 'app_main/assets/js/bootstrap.bundle.min.js' %}"></script>
+
+    </body>
+</html>
