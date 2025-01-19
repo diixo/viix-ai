@@ -118,6 +118,10 @@ https://code.visualstudio.com/docs/
     --dps-theme-highlight-dark-4: #122723;
 }
 
+.bg-light {
+  background-color: #edf2f6 !important;
+}
+
 /* from docs.css */
 .status-opened {
   color: #b810f4;
@@ -294,7 +298,8 @@ body {
   display: flex;
   align-items: center;  /* Centered icon by vertical*/
   gap: 0.5rem;          /* Indent between icon and text*/
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem !important;
 }
 
 
