@@ -7,6 +7,6 @@ app_name = "app_main"
 
 
 urlpatterns = [
-    path("", views.main, name="main"),
+    path("", views.ai_search, name="main"),
     path("ai-search", views.ai_search, name="ai-search"),
 ]
