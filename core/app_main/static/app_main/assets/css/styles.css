@@ -346,13 +346,13 @@ body {
 */
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-  color: #ffffff;
+  color: var(--white);
   background-color: var(--bs-sky);
 }
 
 .nav .nav-item:hover .nav-link {
-  color: var(--white);
-  background-color: var(--bs-sky-hover);
+  color: var(--black);
+  background-color: var(--white);
 }
 
 .nav .nav-item:active .nav-link {
