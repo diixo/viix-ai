@@ -98,7 +98,7 @@ https://code.visualstudio.com/docs/
     /*--bs-blue-hover: #0c50d0;*/
 
 
-    --bs-violet-bg: #712cf9;
+    --bs-violet-bg: #702cf8;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
 
@@ -147,6 +147,14 @@ https://code.visualstudio.com/docs/
   --bs-btn-active-color: var(--white);
   --bs-btn-active-bg: #5a23c8;
   --bs-btn-active-border-color: #5a23c8;
+}
+
+.border-violet {
+  border-color: var(--bs-violet-bg) !important;
+}
+
+.rounded-md {
+  border-radius: 0.75rem !important;
 }
 
 .btn-sky {
@@ -347,7 +355,7 @@ body {
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
   color: var(--white);
-  background-color: var(--bs-sky);
+  background-color: var(--bs-violet-bg);
 }
 
 .nav .nav-item:hover .nav-link {
