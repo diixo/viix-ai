@@ -98,7 +98,7 @@ https://code.visualstudio.com/docs/
     /*--bs-blue-hover: #0c50d0;*/
 
 
-    --bs-violet-bg: #702cf8;
+    --bs-violet-bg: #802cf8;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
 
@@ -141,8 +141,8 @@ https://code.visualstudio.com/docs/
   --bs-btn-bg: var(--bs-violet-bg);
   --bs-btn-border-color: var(--bs-violet-bg);
   --bs-btn-hover-color: var(--white);
-  --bs-btn-hover-bg: #6528e0;
-  --bs-btn-hover-border-color: #6528e0;
+  --bs-btn-hover-bg: #7028e0;
+  --bs-btn-hover-border-color: #7028e0;
   --bs-btn-focus-shadow-rgb: var(--bs-violet-bg);
   --bs-btn-active-color: var(--white);
   --bs-btn-active-bg: #5a23c8;
@@ -354,8 +354,8 @@ body {
 */
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-  color: var(--white);
-  background-color: var(--bs-violet-bg);
+  color: var(--black);
+  background-color: var(--white);
 }
 
 .nav .nav-item:hover .nav-link {
@@ -437,18 +437,20 @@ body {
   margin-top: unset;
   margin-bottom: unset;
   font-weight: 600;
+  /*
   background-color: var(--control-transparent-bgColor-selected, var(--color-action-list-item-default-selected-bg, rgba(208, 215, 222, 0.24)));
+  */
 }
 
 
 .vbar::after {
   position: absolute;
-  top: calc(50% - 15px);  /* 15 = 0.5*height */
+  top: calc(50% - 18px);  /* 15 = 0.5*height */
   left: -8px;
   width: 4px;
   height: 30px;
   content: "";
-  background-color: var(--bs-sky);
+  background-color: var(--bs-violet-bg);
   border-radius: 6px;
 }
 
