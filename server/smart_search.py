@@ -11,40 +11,41 @@ class SmartSearch:
         self.model = SentenceTransformer('all-MiniLM-L6-v2')
         self.index = None
 
+
     def open_file(self, filepath: str):
         path = Path(filepath)
         if path.exists():
             self.index = faiss.read_index(filepath)
             return True
         return False
-    
+
+
     def texts_to_vector(self, texts):
         if self.model: 
-            return self.model.encode(texts)
-        return None
-    
-    def add_texts_to_index(self, texts):
-        if self.index:
-            vector = self.texts_to_vector(texts)
-            if vector is not None:
-                self.index.add(vector)
+            embeddings = self.model.encode(texts)
+            return embeddings, embeddings.shape[1]
+        return None, 0
 
-    def create_index(self, texts: list):
-        # create index FAISS
-        #dimension = embeddings.shape[1]
-        dimension = 384
-        if self.model:
-            dimension = self.model.output_size()
-            self.index = faiss.IndexFlatL2(dimension)  # Using L2 (Euclidean) metrics
 
-        self.add_texts_to_index(texts)
+    def add_texts_to_index(self, texts: list) -> bool:
+        vector, dimension = self.texts_to_vector(texts)
+        if not self.index and dimension > 0:
+            self.index = faiss.IndexFlatL2(dimension)
+
+        if (self.index is not None) and (vector is not None):
+            self.index.add(vector)
+            return True
+        return False
+
 
     def write_index(self, filepath: str):
         if self.index:
             faiss.write_index(self.index, filepath)
 
-    def add_str_to_index(self, text: str):
-        self.add_texts_to_index([ text ])
+
+    def add_str_to_index(self, text: str) -> bool:
+        return self.add_texts_to_index([ text ])
+
 
     def search(self, query_text: str):
         if self.model:
