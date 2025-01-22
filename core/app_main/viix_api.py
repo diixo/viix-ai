@@ -24,7 +24,7 @@ class ViixApi:
 
 
     def page_to_index(self, search_request: str):
-        url = "http://127.0.0.1:8001/page_to_index"
+        url = "http://127.0.0.1:8001/page-to-index"
 
         try:
             #response = requests.post(url, headers={'Content-type': 'application/json'}, data=json.dumps(params))
@@ -34,3 +34,12 @@ class ViixApi:
             return response.json()
         except requests.RequestException as e:
             return {"error": f"RequestException: {e}"}
+
+
+######################################################################
+viix_api = ViixApi()
+
+
+def get_api():
+    global viix_api
+    return viix_api

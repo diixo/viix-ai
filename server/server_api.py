@@ -29,6 +29,7 @@ async def ai_search(input_request: StrRequestModel):
 @app.post("/page-to-index")
 async def page_to_index(input_request: StrRequestModel):
     searching_server().page_to_index(input_request.search_request)
+    return { "status": "200" }
 
 
 

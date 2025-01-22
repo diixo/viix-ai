@@ -19,35 +19,40 @@ class SmartSearch:
         return False
     
     def texts_to_vector(self, texts):
-        return self.model.encode(texts)
+        if self.model: 
+            return self.model.encode(texts)
+        return None
     
     def add_texts_to_index(self, texts):
-        vector = self.texts_to_vector(texts)
-        self.index.add(vector)
+        if self.index:
+            vector = self.texts_to_vector(texts)
+            if vector is not None:
+                self.index.add(vector)
 
     def create_index(self, texts: list):
-        # Создание индекса FAISS
-        #dimension = embeddings.shape[1]  # Размерность эмбеддингов
+        # create index FAISS
+        #dimension = embeddings.shape[1]
         dimension = 384
-        self.index = faiss.IndexFlatL2(dimension)  # Использование L2 (евклидова) метрики
+        if self.model:
+            dimension = self.model.output_size()
+            self.index = faiss.IndexFlatL2(dimension)  # Using L2 (Euclidean) metrics
 
-        # Добавление эмбеддингов в индекс
         self.add_texts_to_index(texts)
 
     def write_index(self, filepath: str):
-        faiss.write_index(self.index, filepath)
+        if self.index:
+            faiss.write_index(self.index, filepath)
 
     def add_str_to_index(self, text: str):
         self.add_texts_to_index([ text ])
 
     def search(self, query_text: str):
-        # Преобразование запроса в эмбеддинг
-        query_embedding = self.model.encode([query_text])
+        if self.model:
+            query_embedding = self.model.encode([query_text])
 
-        # Поиск ближайших соседей
-        k = 20  # Количество ближайших соседей для поиска
-        distances, indices = self.index.search(query_embedding, k)
+            k = 50
+            distances, indices = self.index.search(query_embedding, k)
 
-        if indices.size > 0:
-            return indices[0].tolist(), distances[0].tolist()
+            if indices.size > 0:
+                return indices[0].tolist(), distances[0].tolist()
         return [], []
