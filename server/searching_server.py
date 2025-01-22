@@ -33,3 +33,9 @@ class SearchingServer:
         self.smart_search.create_index([some_text])
         self.smart_search.write_index(path_db_index)
 
+
+    def text_to_index(self, txt: str):
+        logger.info(f"text_to_index:{txt}")
+        return
+        self.smart_search.create_index([txt])
+        self.smart_search.write_index(path_db_index)

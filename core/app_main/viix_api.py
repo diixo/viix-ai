@@ -23,12 +23,25 @@ class ViixApi:
             return {"error": f"RequestException: {e}"}
 
 
-    def page_to_index(self, search_request: str):
+    def page_to_index(self, page_request: str):
         url = "http://127.0.0.1:8001/page-to-index"
 
         try:
             #response = requests.post(url, headers={'Content-type': 'application/json'}, data=json.dumps(params))
-            response = requests.post(url, json={ "search_request": search_request })
+            response = requests.post(url, json={ "str_request": page_request })
+            response.raise_for_status()
+            ###
+            return response.json()
+        except requests.RequestException as e:
+            return {"error": f"RequestException: {e}"}
+
+
+    def text_to_index(self, txt_request: str):
+        url = "http://127.0.0.1:8001/text-to-index"
+
+        try:
+            #response = requests.post(url, headers={'Content-type': 'application/json'}, data=json.dumps(params))
+            response = requests.post(url, json={ "str_request": txt_request })
             response.raise_for_status()
             ###
             return response.json()

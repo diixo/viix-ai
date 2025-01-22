@@ -23,12 +23,18 @@ def searching_server():
 
 @app.post("/ai-search", response_model=List[ContentItemModel])
 async def ai_search(input_request: StrRequestModel):
-    return searching_server().search(input_request.search_request)
+    return searching_server().search(input_request.str_request)
 
 
 @app.post("/page-to-index")
 async def page_to_index(input_request: StrRequestModel):
-    searching_server().page_to_index(input_request.search_request)
+    searching_server().page_to_index(input_request.str_request)
+    return { "status": "200" }
+
+
+@app.post("/text-to-index")
+async def text_to_index(input_request: StrRequestModel):
+    searching_server().text_to_index(input_request.str_request)
     return { "status": "200" }
 
 

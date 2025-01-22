@@ -10,7 +10,7 @@ class ParsingUrlModel(BaseModel):
     categs_str: str
 
 class StrRequestModel(BaseModel):
-    search_request: str
+    str_request: str
 
 class DomainItemModel(BaseModel):
     domain_id: int
