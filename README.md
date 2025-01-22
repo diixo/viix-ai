@@ -1,8 +1,15 @@
 
 # viix.ai - AI web-tool implemented AI-search, based on text embeddings
 
+
+## Run django:
 ```bash
 py core/manage.py runserver
+```
+
+## Run server (from root directory):
+```
+uvicorn server.server_api:app --host localhost --port 8001 --reload
 ```
 
 
@@ -10,12 +17,6 @@ py core/manage.py runserver
 ```bash
 py core/manage.py makemigrations
 py core/manage.py migrate
-```
-
-
-Run server from root directory.
-```
-uvicorn server.server_api:app --host localhost --port 8001 --reload
 ```
 
 
@@ -64,3 +65,7 @@ Path of env for current directory:
 ```
 C:\Users\user\.virtualenvs\viix-ai-uFgYWhcO
 ```
+
+<div align="left" width="1000" height="480">
+  <img src="/imgs/viix-ai.png">
+</div>
