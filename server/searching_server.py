@@ -42,7 +42,7 @@ class SearchingServer:
         content = self.content.get("content", list())
         hostname = "viix.co"
         result = []
-        indices, distances = self.smart_search.search(str_reuest.lower())
+        indices, distances = self.smart_search.search(str_reuest.lower(), k=50)
 
         for id in range(len(indices)):
 

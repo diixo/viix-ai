@@ -124,10 +124,6 @@ https://code.visualstudio.com/docs/
   background-color: #edf2f6 !important;
 }
 
-/* from docs.css */
-.status-opened {
-  color: #b810f4;
-}
 
 .status-closed {
   color: #ffffff;
@@ -406,3 +402,6 @@ body {
   color: var(--custom-blue);
 }
 
+.text-violet {
+  color: #7840e8 !important;
+}
