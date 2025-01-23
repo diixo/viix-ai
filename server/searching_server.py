@@ -21,7 +21,7 @@ class SearchingServer:
     def __init__(self):
         self.smart_search = SmartSearch()
         self.content = self.open_db()
-        self.load_test()
+        #self.load_test()
 
 
     def open_db(self):
@@ -82,8 +82,8 @@ class SearchingServer:
 
 
     def load_test(self):
-        test_txts = "server/db-storage/test.txt"
-        if len(self.content) == 0:
+        test_txts = "server/db-storage/test-allainews.txt"
+        if True:
             logging.info(f"load_test load:{test_txts}")
 
             file_path = Path(test_txts)
