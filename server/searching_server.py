@@ -88,9 +88,8 @@ class SearchingServer:
 
             file_path = Path(test_txts)
             lines = file_path.read_text(encoding="utf-8").splitlines()
-            lines = [line.lower() for line in lines]
 
-            if self.smart_search.add_texts_to_index(lines):
+            if self.smart_search.add_texts_to_index([line.lower() for line in lines]):
                 self.content["content"] = self.content.get("content", list())
                 self.content["content"].extend(lines)
 
