@@ -106,6 +106,8 @@ https://code.visualstudio.com/docs/
     --bs-sky: #009ce0;
     --bs-sky-hover: #0080c8;
 
+    --custom-blue: #20b0d8;
+
     /* serviceNow */
     --dps-theme-highlight: #5cc4af;
     --dps-theme-highlight-light-1: #7dd0bf;
@@ -155,6 +157,10 @@ https://code.visualstudio.com/docs/
 
 .rounded-md {
   border-radius: 0.75rem !important;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
 }
 
 .btn-sky {
@@ -385,11 +391,18 @@ body {
   color: inherit;
 }
 
-.cQdyWD {
-  padding: 6px 8px;
-  display: flex;
-  -webkit-box-flex: 1;
-  flex-grow: 1;
-  border-radius: 6px;
-  color: inherit;
+.channel-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  min-width: 40px;
+  height: 40px;
+  width: 40px;
+  box-shadow: 0 8px 10px -6px rgba(58, 46, 68, 0.5);
 }
+
+.theme-blue-text {
+  color: var(--custom-blue);
+}
+

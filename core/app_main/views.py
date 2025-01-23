@@ -11,18 +11,26 @@ def main(request):
 
 def ai_search(request):
     api = viix_api.get_api()
+    result = None
+    results_amount = ""
+    query = ""
+
     if request.method == "POST":
-
-        button_value = request.POST.get("search_action_btn")
-
-        if button_value:
+        if request.POST.get("search_action_btn"):
             query = request.POST.get("query", "")
-            print(f"ai_search query:{query}")
-            api.ai_search(search_request=query)
+
+            if query:
+                result = api.ai_search(query)
+                results_amount = str(len(result)) if result is not None else "0"
+                print(f"ai_search query:{query}, result.sz={results_amount}")
 
     return render(request, "app_main/ai-search.html", context={
         "title": "Viix Search engine powered by AI",
-        "description": "Search engine powered by AI. Tired of ads clogging up your search results? Get Answers. Not ads."
+        "description": "Search engine powered by AI. Tired of ads clogging up your search results? Get Answers. Not ads.",
+        "content_list": result,
+        "results_amount": results_amount,
+        "search_request": query,
+        "classify_categories": []
         })
 
 

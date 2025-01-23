@@ -5,6 +5,7 @@ from server.smart_search import SmartSearch
 from server.schemas import ContentItemModel
 from typing import List
 from pathlib import  Path
+from datetime import datetime
 
 
 logging.basicConfig(level=logging.DEBUG, format='%(threadName)s %(message)s')
@@ -33,9 +34,31 @@ class SearchingServer:
 
 
     def search(self, str_reuest: str) -> List[ContentItemModel]:
-        logging.info(f"search-request:{str_reuest}")
+        logging.info(f"::search request:{str_reuest}")
+
+        current_datetime = datetime.now()
+        f_datetime = current_datetime.strftime("%H:%M %d-%m-%Y")
+
+        content = self.content.get("content", list())
+        hostname = "viix.co"
         result = []
         indices, distances = self.smart_search.search(str_reuest.lower())
+
+        for id in range(len(indices)):
+
+            result.append(ContentItemModel(
+                url     = "https://" + hostname,
+                heading = content[indices[id]],
+                description = content[indices[id]] + "; description id=" + str(indices[id]),
+                icon_url = "https://www.google.com/s2/favicons?domain=" + hostname + "&sz=64",
+                hostname = hostname,
+                hostname_slug = "",
+                distance = f"{distances[id]:.8f}",
+                img_url  = "url:///img",
+                date     = f_datetime,
+                tags     = []
+            ))
+        logging.info(f"::search results.sz={len(indices)}")
         return result
 
 
