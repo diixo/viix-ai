@@ -47,11 +47,10 @@ class SmartSearch:
         return self.add_texts_to_index([ text ])
 
 
-    def search(self, query_text: str):
+    def search(self, query_text: str, k=20):
         if self.model:
             query_embedding = self.model.encode([query_text])
 
-            k = 50
             distances, indices = self.index.search(query_embedding, k)
 
             if indices.size > 0:
