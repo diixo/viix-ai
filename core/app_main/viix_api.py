@@ -15,7 +15,7 @@ class ViixApi:
 
         try:
             #response = requests.post(url, headers={'Content-type': 'application/json'}, data=json.dumps(params))
-            response = requests.post(url, json={ "search_request": search_request })
+            response = requests.post(url, json={ "str_request": search_request })
             response.raise_for_status()
             ###
             return response.json()
