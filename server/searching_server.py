@@ -71,7 +71,7 @@ class SearchingServer:
     def text_to_index(self, txt: str):
         logging.info(f"text_to_index:{txt}")
 
-        if self.smart_search.add_str_to_index(txt):
+        if self.smart_search.add_str_to_index(txt.lower()):
             self.content["content"] = self.content.get("content", list())
             self.content["content"].append(txt)
 
@@ -88,6 +88,7 @@ class SearchingServer:
 
             file_path = Path(test_txts)
             lines = file_path.read_text(encoding="utf-8").splitlines()
+            lines = [line.lower() for line in lines]
 
             if self.smart_search.add_texts_to_index(lines):
                 self.content["content"] = self.content.get("content", list())
