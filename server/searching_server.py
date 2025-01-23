@@ -47,9 +47,9 @@ class SearchingServer:
         for id in range(len(indices)):
 
             result.append(ContentItemModel(
-                url     = "https://" + hostname,
+                url     = local_db_json + f"/{ str(indices[id]) }",
                 heading = content[indices[id]],
-                description = content[indices[id]] + "; description id=" + str(indices[id]),
+                description = "",
                 icon_url = "https://www.google.com/s2/favicons?domain=" + hostname + "&sz=64",
                 hostname = hostname,
                 hostname_slug = "",
