@@ -20,7 +20,8 @@ class ViixApi:
             ###
             return response.json()
         except requests.RequestException as e:
-            return {"error": f"RequestException: {e}"}
+            #return {"error": f"RequestException: {e}"}
+            return None
 
 
     def page_to_index(self, page_request: str):
