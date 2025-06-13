@@ -1,5 +1,10 @@
 
 from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.contrib.auth import authenticate, logout, login as auth_login
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.conf import settings
 from . import viix_api
 
 
@@ -35,6 +40,29 @@ def ai_search(request):
         })
 
 
+def login_view(request):
+    if request.user.is_authenticated:
+        return redirect(to="app_main:main")
+
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            auth_login(request, user)
+            return redirect(to="app_main:main")
+        else:
+            messages.error(request, "Wrong username or password")
+    return render(request, "app_main/signin.html")
+
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect(to="app_main:main")
+    #return redirect(to="app_main:signin")
+
+
 def add_text(request):
     api = viix_api.get_api()
     if request.method == "POST":
@@ -64,7 +92,7 @@ def add_page(request):
             return redirect(to="app_main:main")
             #return redirect(to="app_main:ai-search")
 
-    return redirect(to="app_main:ai-search")
+    return redirect(to="app_main:main")
     return render(request, "app_main/add-page.html", context={
         "title": "viix add_page: AI-search",
         "description": "add_page: viix AI-search for AI-tools"})
