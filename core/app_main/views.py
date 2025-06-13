@@ -4,6 +4,7 @@ from . import viix_api
 
 
 def main(request):
+    return redirect(to="app_main:ai-search")
     return render(request, "app_main/index.html", context={
         "title": "Viix AI-search for AI-tools",
         "description": "AI-search for AI-tools. Combined with AI, it can revolutionize the workplace. Viix brings comprehensive, accurate, and search-based AI"})
@@ -43,7 +44,8 @@ def add_text(request):
             txt = request.POST.get("input_txt_field", "")
             print(f"add_text:{txt}")
             api.text_to_index(txt)
-            return redirect(to="app_main:ai-search")
+            return redirect(to="app_main:main")
+            #return redirect(to="app_main:ai-search")
 
     return render(request, "app_main/add-text.html", context={
         "title": "viix add_text: AI-search",
@@ -59,7 +61,8 @@ def add_page(request):
             txt = request.POST.get("input_url_field", "")
             print(f"add_page:{txt}")
             api.page_to_index(txt)
-            return redirect(to="app_main:ai-search")
+            return redirect(to="app_main:main")
+            #return redirect(to="app_main:ai-search")
 
     return redirect(to="app_main:ai-search")
     return render(request, "app_main/add-page.html", context={
