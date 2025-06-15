@@ -43,6 +43,7 @@ pipenv install tensorflow==2.14.0
 pipenv install keras==2.14.0
 pipenv install faiss-cpu==1.8.0
 pipenv install sentence-transformers==3.0.0
+pipenv install djangorestframework==3.16.0
 ```
 All this packages will be pushed into file **Pipfile**.
 Regeneration **requirements.txt** should perform after every update the Pipfile.
