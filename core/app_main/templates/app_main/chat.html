@@ -1,0 +1,35 @@
+
+{% extends "app_main/base.html" %}
+
+{% block meta %}
+<title>Title</title>
+<meta property="og:title" content="Title">
+<meta name="description" content="Description">
+<meta property="og:description" content="Description">
+{% endblock %}
+
+{% block content %}
+
+<div class="chat-wrapper">
+  
+
+  <div class="chat-box mt-3" id="chatBox">
+    <div class="message bot">Hello! How can assist you?</div>
+    <div class="message user">Lorem ipsum dolor im seit. Fatum ratum verbatum. Simpus crampus peromantus.
+	The applications of LLM Agents are becoming increasingly complex and diverse, leading to a high demand for structured outputs that can be parsed into code, structured function calls, and embodied agent commands. 
+	</div>
+  </div>
+
+
+  <div class="chat-input mt-2 rounded-pill">
+    <form class="d-flex" id="chatForm">
+      <input type="text" class="form-control me-2" placeholder="Message to Assistant..." id="chatInput">
+      <button class="btn btn-primary rounded-pill">
+        <span class="material-icons-round">send</span>
+      </button>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}
