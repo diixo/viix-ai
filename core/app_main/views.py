@@ -14,6 +14,11 @@ def main(request):
         "title": "Viix AI-search for AI-tools",
         "description": "AI-search for AI-tools. Combined with AI, it can revolutionize the workplace. Viix brings comprehensive, accurate, and search-based AI"})
 
+def chat_view(request):
+    return render(request, "app_main/chat.html", context={
+        "title": "Chat",
+        "description": "Description chat"})
+
 
 def ai_search(request):
     api = viix_api.get_api()

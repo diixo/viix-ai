@@ -11,4 +11,5 @@ urlpatterns = [
     path("logout",    views.logout_view, name="logout"),
     path("add-text", views.add_text, name="add-text"),
     path("add-page", views.add_page, name="add-page"),
+    path("chat", views.chat_view,   name="chat"),
 ]
