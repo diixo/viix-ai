@@ -10,10 +10,9 @@
 
 {% block content %}
 
-<div class="chat-wrapper">
-  
+<div class="chat-wrapper rounded-5">
 
-  <div class="chat-box mt-3" id="chatBox">
+  <div class="chat-box mt-4" id="chatBox">
     <div class="message bot">Hello! How can assist you?</div>
     <div class="message user">Lorem ipsum dolor im seit. Fatum ratum verbatum. Simpus crampus peromantus.
 	The applications of LLM Agents are becoming increasingly complex and diverse, leading to a high demand for structured outputs that can be parsed into code, structured function calls, and embodied agent commands. 
@@ -21,15 +20,24 @@
   </div>
 
 
-  <div class="chat-input rounded-pill">
-    <form class="d-flex" id="chatForm">
-      <input type="text" class="form-control me-2" placeholder="Message to Assistant..." id="chatInput">
-      <button class="btn btn-violet rounded-pill d-flex align-items-center">
+  <div class="chat-input rounded-5">
+    <form class="d-flex align-items-end" id="chatForm">
+      <textarea id="chatInput" class="form-control me-2" rows="1" placeholder="Message to Assistant..."></textarea>
+      <button class="btn btn-violet rounded-pill flex-shrink-0 d-flex align-items-center">
         <span class="material-icons-round">send</span>
       </button>
     </form>
   </div>
 
 </div>
+
+<script>
+  const textarea = document.getElementById("chatInput");
+
+  textarea.addEventListener("input", function () {
+    this.style.height = "auto";                   // reset height
+    this.style.height = this.scrollHeight + "px"; // set new height
+  });
+</script>
 
 {% endblock %}
