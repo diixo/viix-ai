@@ -15,6 +15,15 @@ def main(request):
         "description": "AI-search for AI-tools. Combined with AI, it can revolutionize the workplace. Viix brings comprehensive, accurate, and search-based AI"})
 
 def chat_view(request):
+    if request.method == "POST":
+        if request.POST.get("send_action_btn"):
+            query = request.POST.get("query", "").strip()
+            print(query)
+            # if query:
+            #     result = api.ai_search(query)
+            #     results_amount = str(len(result)) if result is not None else "0"
+            #     print(f"ai_search query:{query}, result.sz={results_amount}")
+
     return render(request, "app_main/chat-dev.html", context={
         "title": "Chat",
         "description": "Description chat"})
