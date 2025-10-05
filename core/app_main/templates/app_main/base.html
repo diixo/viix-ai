@@ -103,21 +103,27 @@
                         <div class="d-flex flex-column flex-shrink-0 p-3">
                             <div class="ps-3" style="padding-top: 0.75rem; padding-bottom: 0.75rem;">
                                 <a href="{% url 'app_main:main' %}" class="text-decoration-none">
-                                   <img src="/static/app_main/logos/viix/dxc-logo.svg" class="img-fluid" alt="brand-logo" style="height:24px;" title="viix apps marketplace">
+                                   <img src="/static/app_main/logos/viix/dxc-logo.svg" class="img-fluid" alt="brand-logo" style="height:24px;" title="viix-ai app">
                                 </a>
                              </div>
                             <hr>
                             <ul class="nav nav-pills flex-column" style="color: #606060;">
                                 <li class="nav-item vbar pb-2"> <!-- vbar=nav-item -->
                                     <a href="{% url 'app_main:main' %}" class="nav-link active" aria-current="page">
+                                        <span class="material-icons">grid_view</span>
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="nav-item pb-2">
+                                    <a href="{% url 'app_main:ai-search' %}" class="nav-link">
                                         <span class="material-icons">manage_search</span>
-                                        Search
+                                        AI-search
                                     </a>
                                 </li>
                                 <li class="nav-item pb-2">
                                     <a href="{% url 'app_main:add-text' %}" class="nav-link">
                                         <span class="material-icons">post_add</span>
-                                        Add Text
+                                        Add Chat
                                     </a>
                                 </li>
                                 <!--
@@ -138,12 +144,6 @@
                                     <a href="" class="nav-link">
                                         <span class="material-icons">collections_bookmark</span>
                                         Collection
-                                    </a>
-                                </li>
-                                <li class="nav-item pb-2">
-                                    <a href="" class="nav-link">
-                                        <span class="material-icons">grid_view</span>
-                                        Sites
                                     </a>
                                 </li>
                             </ul>

@@ -9,7 +9,7 @@ from . import viix_api
 
 
 def main(request):
-    return redirect(to="app_main:ai-search")
+    #return redirect(to="app_main:ai-search")
     return render(request, "app_main/index.html", context={
         "title": "Viix AI-search for AI-tools",
         "description": "AI-search for AI-tools. Combined with AI, it can revolutionize the workplace. Viix brings comprehensive, accurate, and search-based AI"})
