@@ -358,8 +358,8 @@ body {
   -webkit-transition: all .15s ease;
   -o-transition: all .15s ease;
   transition: all .15s ease;
-  background-color: var(--bs-secondary-bg);
-  border-color: #0080C0;
+  background-color: #efeefe;
+  border-color: var(--bs-violet-hover);
   border-width: 2px;
 }
 
@@ -367,7 +367,7 @@ body {
   display: block;
   /*background: var(--bs-tertiary-bg);*/
   background-color: var(--bs-tertiary-bg);
-  border: 2px solid #00a0e4;
+  border: 2px solid var(--bs-violet-bg);
 }
 
 .px2rem {
