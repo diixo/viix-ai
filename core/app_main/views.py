@@ -7,6 +7,8 @@ from django.contrib import messages
 from django.conf import settings
 from . import viix_api
 from itertools import zip_longest
+from django.http import JsonResponse
+import time
 
 
 def main(request):
@@ -23,6 +25,9 @@ def chat_view(request):
             query = request.POST.get("query", "").strip()
             api.new_message("developer", query)
             answer = api.get_answer("developer")
+            print(answer)
+            time.sleep(2.0)
+            return JsonResponse({"response": answer["str_request"]})
 
     dialogue = api.get_dialogue("developer")
     combined = []

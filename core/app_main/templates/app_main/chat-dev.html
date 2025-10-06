@@ -42,12 +42,77 @@
 </div>
 
 <script>
-  const textarea = document.getElementById("chatInput");
+document.addEventListener("DOMContentLoaded", function()
+{
+  const chatForm = document.getElementById("chatForm");
+  const chatInput = document.getElementById("chatInput");
+  const chatWindow = document.getElementById("chatBox");
+  const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
-  textarea.addEventListener("input", function () {
-    this.style.height = "auto";                   // reset height
-    this.style.height = this.scrollHeight + "px"; // set new height
+  chatForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const query = chatInput.value.trim();
+    if (!query) return;
+
+    // ➤ 1. Added User message
+    appendMessage("user", query);
+    chatInput.value = "";
+
+    // ➤ 2. show temporary message: "Assistant is typing…"
+    const typingMsg = appendMessage("assistant", "<i>Assistant is typing...</i>");
+
+    try {
+      const response = await fetch("", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "X-CSRFToken": csrfToken,
+        },
+        body: new URLSearchParams({
+          query: query,
+          send_action_btn: "1",
+        })
+      });
+
+      const data = await response.json();
+
+      // ➤ 3. change "typing…" to real answer
+      typingMsg.querySelector(".bubble").innerHTML = data.response;
+    } catch (error) {
+      typingMsg.querySelector(".bubble").innerHTML = "<i>Error connection</i>";
+      console.error(error);
+    }
+
+    // bottom autoscrolling
+    chatWindow.scrollTop = chatWindow.scrollHeight;
   });
+
+function appendMessage(role, text) {
+  const msg = document.createElement("div");
+
+  if (role === "assistant") {
+    msg.className = "message bot";
+    msg.innerHTML = `
+      <div class="avatar"><i class="fa-regular fa-message-bot"></i></div>
+      <div class="bubble">${text}</div>
+    `;
+  } else if (role === "user") {
+    msg.className = "message user";
+    msg.innerHTML = `
+      <div class="bubble">${text}</div>
+    `;
+  } else {
+    msg.className = "message";
+    msg.innerHTML = `<div class="bubble">${text}</div>`;
+  }
+
+  chatWindow.appendChild(msg);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+  return msg;
+}
+
+});
 </script>
+
 
 {% endblock %}
