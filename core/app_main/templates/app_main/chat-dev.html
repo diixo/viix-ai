@@ -33,8 +33,13 @@
       {% csrf_token %}
       <textarea id="chatInput" name="query" type="text" class="form-control me-2" rows="1" placeholder="Message to Assistant..."></textarea>
       <button class="btn btn-violet rounded-pill flex-shrink-0 d-flex align-items-center"
-        type="submit" value="send_action" name="send_action_btn">
+        type="submit" value="send_action" name="send_action_btn" title="send message">
         <span class="material-icons-round">send</span>
+      </button>
+
+      <button class="btn btn-outline-secondary ms-2 rounded-pill flex-shrink-0 d-flex align-items-center"
+        type="submit" value="new_chat" name="create_new_chat" title="new chat">
+        <span class="material-icons me-1">post_add</span>new chat
       </button>
     </form>
   </div>
