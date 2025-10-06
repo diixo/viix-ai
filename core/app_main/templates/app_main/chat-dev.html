@@ -38,7 +38,7 @@
       </button>
 
       <button class="btn btn-outline-secondary ms-2 rounded-pill flex-shrink-0 d-flex align-items-center"
-        type="submit" value="new_chat" name="create_new_chat" title="new chat">
+        type="button" id="newChatBtn" value="new_chat" name="create_new_chat" title="new chat">
         <span class="material-icons me-1">post_add</span>new chat
       </button>
     </form>
@@ -53,6 +53,8 @@
     this.style.height = "auto";                   // reset height
     this.style.height = this.scrollHeight + "px"; // set new height
   });
+
+  document.getElementById("newChatBtn").addEventListener("click", startNewChat);
 </script>
 
 <script>
@@ -126,7 +128,27 @@ function appendMessage(role, text) {
 }
 
 });
-</script>
 
+const newChatBtn = document.getElementById("newChatBtn");
+
+newChatBtn.addEventListener("click", async function () {
+  console.log("Create new chat...");
+
+  const response = await fetch("", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]").value,
+    },
+    body: new URLSearchParams({
+      "create_new_chat": "new_chat"
+    })
+  });
+
+  const data = await response.json();
+  console.log("Response from Django:", data);
+});
+
+</script>
 
 {% endblock %}

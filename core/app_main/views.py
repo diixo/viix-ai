@@ -25,9 +25,10 @@ def chat_view(request):
             query = request.POST.get("query", "").strip()
             api.new_message("developer", query)
             answer = api.get_answer("developer")
-            print(answer)
             time.sleep(2.0)
             return JsonResponse({"response": answer["str_request"]})
+        if request.POST.get("create_new_chat"):
+            api.new_dialogue("developer")
 
     dialogue = api.get_dialogue("developer")
     combined = []
@@ -36,7 +37,7 @@ def chat_view(request):
             combined.append({"role": "assistant", "text": bot})
         if user:
             combined.append({"role": "user", "text": user})
-    print(combined)
+    #print(combined)
 
     return render(request, "app_main/chat-dev.html", context = {
         "messages": combined

@@ -64,6 +64,13 @@ async def get_dialogue(dialogue: DialogueParams):
         return None
 
 
+@app.post("/new-dialogue")
+async def new_dialogue(dialogue: DialogueParams):
+    if dialogue.dialogue_type in {"developer", "manager", "auditor",}:
+        print("::new_dialogue:", dialogue.dialogue_type)
+    return { "status": "200" }
+
+
 if __name__ == "__main__":
     try:
         uvicorn.run(
