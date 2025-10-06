@@ -12,6 +12,10 @@ class ParsingUrlModel(BaseModel):
 class StrRequestModel(BaseModel):
     str_request: str
 
+class DialogueParams(BaseModel):
+    dialogue_type: str
+    message_str: str
+
 class DomainItemModel(BaseModel):
     domain_id: int
     name: str
@@ -47,6 +51,11 @@ class ContentItemModel(BaseModel):
     img_url: str
     date: str
     tags: List[str]
+
+
+class DialogueModel(BaseModel):
+    assistant: List[str]
+    user: List[str]
 
 class DomainIdModel(BaseModel):
     domain_id: int

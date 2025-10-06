@@ -13,13 +13,18 @@
 <div class="chat-wrapper rounded-5">
 
   <div class="chat-box mt-4" id="chatBox">
+
+  {% for msg in messages %}
+    {% if msg.role == "assistant" %}
     <div class="message bot">
       <div class="avatar"><i class="fa-regular fa-message-bot"></i></div>
-      <div class="bubble">Hello! What can I help with?</div>
+      <div class="bubble">{{msg.text}}</div>
     </div>
-    <div class="message user">Lorem ipsum dolor im seit. Fatum ratum verbatum. Simpus crampus peromantus.
-	The applications of LLM Agents are becoming increasingly complex and diverse, leading to a high demand for structured outputs that can be parsed into code, structured function calls, and embodied agent commands. 
-	</div>
+    {% else %}
+    <div class="message user">{{msg.text}}</div>
+    {% endif %}
+  {% endfor %}
+
   </div>
 
 

@@ -5,8 +5,8 @@ import json
 import requests
 from fastapi import FastAPI
 from server.searching_server import SearchingServer
-from server.schemas import StrRequestModel, ContentItemModel
-from typing import List
+from server.schemas import StrRequestModel, ContentItemModel, DialogueModel, DialogueParams
+from typing import List, Optional
 import logging
 
 
@@ -37,6 +37,31 @@ async def text_to_index(input_request: StrRequestModel):
     searching_server().text_to_index(input_request.str_request)
     return { "status": "200" }
 
+
+@app.post("/new-message")
+async def new_message(dialogue: DialogueParams):
+    if dialogue.dialogue_type in {"developer", "manager", "auditor",}:
+        print("new message:", dialogue.message_str)
+    return { "status": "200" }
+
+
+@app.post("/get-answer", response_model=Optional[StrRequestModel])
+async def get_answer(dialogue: DialogueParams):
+    return StrRequestModel(
+        str_request="You should ask your Line Manager to assign task on you, or create new one by yourself."
+    )
+
+
+@app.post("/get-dialogue", response_model=Optional[DialogueModel])
+async def get_dialogue(dialogue: DialogueParams):
+    if dialogue.dialogue_type in {"developer", "manager", "auditor",}:
+        dialogue = DialogueModel(
+            assistant = ["Hi, I am development Assistant.", "Do you have any assigned tickets on you?"],
+            user =      ["Hello", "I have finished all development activities."]
+        )
+        return dialogue
+    else:
+        return None
 
 
 if __name__ == "__main__":

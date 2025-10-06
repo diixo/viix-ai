@@ -50,6 +50,41 @@ class ViixApi:
             return {"error": f"RequestException: {e}"}
 
 
+    def new_message(self, dialogue_type: str, message: str):
+        url = "http://127.0.0.1:8001/new-message"
+
+        try:
+            response = requests.post(url, json={ "dialogue_type": dialogue_type, "message_str": message })
+            response.raise_for_status()
+            ###
+            return response.json()
+        except requests.RequestException as e:
+            return {"error": f"RequestException: {e}"}
+
+
+    def get_answer(self, dialogue_type: str):
+        url = "http://127.0.0.1:8001/get-answer"
+
+        try:
+            response = requests.post(url, json={ "dialogue_type": dialogue_type, "message_str": ""  })
+            response.raise_for_status()
+            ###
+            return response.json()
+        except requests.RequestException as e:
+            return {"error": f"RequestException: {e}"}
+
+
+    def get_dialogue(self, dialogue_type: str):
+        url = "http://127.0.0.1:8001/get-dialogue"
+
+        try:
+            response = requests.post(url, json={ "dialogue_type": dialogue_type, "message_str": "" })
+            response.raise_for_status()
+            ###
+            return response.json()
+        except requests.RequestException as e:
+            return {"error": f"RequestException: {e}"}
+
 ######################################################################
 viix_api = ViixApi()
 

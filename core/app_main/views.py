@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 from . import viix_api
+from itertools import zip_longest
 
 
 def main(request):
@@ -14,24 +15,38 @@ def main(request):
         "title": "Viix AI-search for AI-tools",
         "description": "AI-search for AI-tools. Combined with AI, it can revolutionize the workplace. Viix brings comprehensive, accurate, and search-based AI"})
 
+
 def chat_view(request):
+    api = viix_api.get_api()
     if request.method == "POST":
         if request.POST.get("send_action_btn"):
             query = request.POST.get("query", "").strip()
-            print(query)
-            # if query:
-            #     result = api.ai_search(query)
-            #     results_amount = str(len(result)) if result is not None else "0"
-            #     print(f"ai_search query:{query}, result.sz={results_amount}")
+            api.new_message("developer", query)
+            answer = api.get_answer("developer")
+
+    dialogue = api.get_dialogue("developer")
+    combined = []
+    for bot, user in zip_longest(dialogue["assistant"], dialogue["user"]):
+        if bot:
+            combined.append({"role": "assistant", "text": bot})
+        if user:
+            combined.append({"role": "user", "text": user})
+    print(combined)
+
+    return render(request, "app_main/chat-dev.html", context = {
+        "messages": combined
+        })
 
     return render(request, "app_main/chat-dev.html", context={
         "title": "Chat",
         "description": "Description chat"})
+
 
 def chat_manager(request):
     return render(request, "app_main/chat-dev.html", context={
         "title": "Chat",
         "description": "Description chat"})
+
 
 def chat_auditor(request):
     return render(request, "app_main/chat-dev.html", context={
