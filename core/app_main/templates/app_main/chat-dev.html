@@ -122,15 +122,28 @@ document.addEventListener("DOMContentLoaded", function() {
         }),
       });
 
-      const data = await response.json();
+      const data = await response.json(); // wait for json from django
       console.log("Response from Django:", data);
 
-      // Clear new chat in browser
-      chatWindow.innerHTML = "";
-      appendMessage("assistant", "<i>New chat started.</i>");
+      if (data.status === "ok") {
+        const chatWindow = document.getElementById("chatBox");
+        chatWindow.innerHTML = "";  // clear old messages
+
+        // append new messages
+        data.messages.forEach(msg => {
+          appendMessage(
+            msg.role.toLowerCase() === "assistant" ? "assistant" : "user",
+            msg.utterance
+          );
+        });
+      }
     }
     catch (error) {
       console.error("Error creating new chat:", error);
+    }
+
+    if (response.ok) {
+      window.location.reload(); // update page => Django renders HTML anew
     }
   });
 

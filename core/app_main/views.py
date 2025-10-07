@@ -25,10 +25,12 @@ def chat_view(request):
             query = request.POST.get("query", "").strip()
             api.new_message("developer", query)
             answer = api.get_last_answer("developer")
-            time.sleep(2.0)
+            time.sleep(1.0)
             return JsonResponse({"response": answer["utterance"]})
         if request.POST.get("create_new_chat"):
             api.clear_dialogue("developer")
+            dialogue = api.get_dialogue("developer")
+            return JsonResponse({"status": "ok", "messages": dialogue})
 
     dialogue = api.get_dialogue("developer")
     print(dialogue)
