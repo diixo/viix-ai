@@ -24,13 +24,14 @@ def chat_view(request):
         if request.POST.get("send_action_btn"):
             query = request.POST.get("query", "").strip()
             api.new_message("developer", query)
-            answer = api.get_answer("developer")
+            answer = api.get_last_answer("developer")
             time.sleep(2.0)
             return JsonResponse({"response": answer["utterance"]})
         if request.POST.get("create_new_chat"):
-            api.new_dialogue("developer")
+            api.clear_dialogue("developer")
 
     dialogue = api.get_dialogue("developer")
+    print(dialogue)
 
     return render(request, "app_main/chat-dev.html", context = {
         "messages": dialogue,

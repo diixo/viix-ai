@@ -14,6 +14,7 @@ class Dialogue_gpt2:
         self.model = GPT2LMHeadModel.from_pretrained(model_dir)
 
         self.conversation_history = deque(maxlen=512)
+        self.handle_user_message()
 
 
     def build_prompt(self, user_message):
@@ -85,6 +86,11 @@ class Dialogue_gpt2:
     def get_last_answer(self):
         role, msg = self.conversation_history[-1]
         return Message(role=role, utterance=msg.replace("\n", " ").removeprefix(f"{role}: ").strip())
+
+
+    def clear(self):
+        self.conversation_history.clear()
+        self.handle_user_message()
 
 
 if __name__ == "__main__":

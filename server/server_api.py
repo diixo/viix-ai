@@ -17,8 +17,6 @@ searching_server_global = SearchingServer()
 
 dialogue_dev = Dialogue_gpt2(system_prompt="You are developer Assistant.")
 
-dialogue_dev.handle_user_message()
-
 ######################################################
 def searching_server():
     global searching_server_global
@@ -50,8 +48,8 @@ async def new_message(dialogue: DialogueParams):
     return { "status": "200" }
 
 
-@app.post("/get-answer", response_model=Optional[Message])
-async def get_answer(dialogue: DialogueParams):
+@app.post("/get-last-answer", response_model=Optional[Message])
+async def get_last_answer(dialogue: DialogueParams):
     if dialogue.dialogue_type in {"developer", "manager", "auditor",}:
         return dialogue_dev.get_last_answer()
     else:
@@ -66,10 +64,11 @@ async def get_dialogue(dialogue: DialogueParams):
         return []
 
 
-@app.post("/new-dialogue")
-async def new_dialogue(dialogue: DialogueParams):
+@app.post("/clear-dialogue")
+async def clear_dialogue(dialogue: DialogueParams):
     if dialogue.dialogue_type in {"developer", "manager", "auditor",}:
-        print("::new_dialogue:", dialogue.dialogue_type)
+        print("::clear_dialogue:", dialogue.dialogue_type)
+        dialogue_dev.clear()
     return { "status": "200" }
 
 
