@@ -11,6 +11,8 @@ venv/
 ENV/
 env.bak/
 
+server/models/gpt2-babi/*
+
 # Temporary static directory
 #core/static/
 
