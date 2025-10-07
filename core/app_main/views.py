@@ -33,7 +33,6 @@ def chat_view(request):
             return JsonResponse({"status": "ok", "messages": dialogue})
 
     dialogue = api.get_dialogue("developer")
-    print(dialogue)
 
     return render(request, "app_main/chat-dev.html", context = {
         "messages": dialogue,
