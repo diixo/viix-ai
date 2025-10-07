@@ -59,3 +59,8 @@ class DialogueModel(BaseModel):
 
 class DomainIdModel(BaseModel):
     domain_id: int
+
+class Message(BaseModel):
+    role: str
+    utterance: str
+
