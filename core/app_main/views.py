@@ -26,26 +26,15 @@ def chat_view(request):
             api.new_message("developer", query)
             answer = api.get_answer("developer")
             time.sleep(2.0)
-            return JsonResponse({"response": answer["str_request"]})
+            return JsonResponse({"response": answer["utterance"]})
         if request.POST.get("create_new_chat"):
             api.new_dialogue("developer")
 
     dialogue = api.get_dialogue("developer")
-    combined = []
-    for bot, user in zip_longest(dialogue["assistant"], dialogue["user"]):
-        if bot:
-            combined.append({"role": "assistant", "text": bot})
-        if user:
-            combined.append({"role": "user", "text": user})
-    #print(combined)
 
     return render(request, "app_main/chat-dev.html", context = {
-        "messages": combined
+        "messages": dialogue,
         })
-
-    return render(request, "app_main/chat-dev.html", context={
-        "title": "Chat",
-        "description": "Description chat"})
 
 
 def chat_manager(request):

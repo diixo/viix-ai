@@ -5,7 +5,8 @@ import json
 import requests
 from fastapi import FastAPI
 from server.searching_server import SearchingServer
-from server.schemas import StrRequestModel, ContentItemModel, DialogueModel, DialogueParams
+from server.schemas import StrRequestModel, ContentItemModel, DialogueParams, Message
+from server.dialogue import Dialogue_gpt2
 from typing import List, Optional
 import logging
 
@@ -14,6 +15,9 @@ app = FastAPI()
 
 searching_server_global = SearchingServer()
 
+dialogue_dev = Dialogue_gpt2(system_prompt="You are developer Assistant.")
+
+dialogue_dev.handle_user_message()
 
 ######################################################
 def searching_server():
@@ -42,26 +46,24 @@ async def text_to_index(input_request: StrRequestModel):
 async def new_message(dialogue: DialogueParams):
     if dialogue.dialogue_type in {"developer", "manager", "auditor",}:
         print("new message:", dialogue.message_str)
+        dialogue_dev.handle_user_message(dialogue.message_str)
     return { "status": "200" }
 
 
-@app.post("/get-answer", response_model=Optional[StrRequestModel])
+@app.post("/get-answer", response_model=Optional[Message])
 async def get_answer(dialogue: DialogueParams):
-    return StrRequestModel(
-        str_request="You should ask your Line Manager to assign task on you, or create new one by yourself."
-    )
-
-
-@app.post("/get-dialogue", response_model=Optional[DialogueModel])
-async def get_dialogue(dialogue: DialogueParams):
     if dialogue.dialogue_type in {"developer", "manager", "auditor",}:
-        dialogue = DialogueModel(
-            assistant = ["Hi, I am development Assistant.", "Do you have any assigned tickets on you?"],
-            user =      ["Hello", "I have finished all development activities."]
-        )
-        return dialogue
+        return dialogue_dev.get_last_answer()
     else:
         return None
+
+
+@app.post("/get-dialogue", response_model=List[Message])
+async def get_dialogue(dialogue: DialogueParams):
+    if dialogue.dialogue_type in {"developer", "manager", "auditor",}:
+        return dialogue_dev.get_history()
+    else:
+        return []
 
 
 @app.post("/new-dialogue")
