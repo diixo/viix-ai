@@ -76,7 +76,7 @@ class Dialogue_gpt2:
         return assistant_reply
 
 
-    def get_history(self):
+    def get_messages(self):
         return [
             Message(role=role, utterance=msg.replace("\n", " ").removeprefix(f"{role}: ").strip())
             for role, msg in self.conversation_history

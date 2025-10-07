@@ -59,7 +59,7 @@ async def get_last_answer(dialogue: DialogueParams):
 @app.post("/get-dialogue", response_model=List[Message])
 async def get_dialogue(dialogue: DialogueParams):
     if dialogue.dialogue_type in {"developer", "manager", "auditor",}:
-        return dialogue_dev.get_history()
+        return dialogue_dev.get_messages()
     else:
         return []
 
