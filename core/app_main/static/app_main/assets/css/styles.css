@@ -2,7 +2,7 @@
 @import url('fonts/dm-sans/dm-sans.css');
 @import url('fonts/gilroy/Gilroy.css');
 @import url('fonts/noto-sans/noto-sans.css');
-@import url('fonts/reith-sans/reith-sans.css');
+@import url('fonts/helvetica-now-mt/helvetica-now-mt.css');
 
 :root {
 /*
@@ -266,8 +266,8 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
-.demo-reith-sans {
-  font-family: 'BBC-Reith-Sans', sans-serif;
+.demo-helvetica-now-mt {
+  font-family: 'HelveticaNowMTText', sans-serif;
   font-size: 16px;
   line-height: 1.75;
 }
