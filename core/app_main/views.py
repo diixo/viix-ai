@@ -15,6 +15,13 @@ def main(request):
         "description": "AI-search for AI-tools. Combined with AI, it can revolutionize the workplace. Viix brings comprehensive, accurate, and search-based AI"})
 
 
+def demo(request):
+    return render(request, "app_main/demo.html", context={
+        "title": "Demo fonts: Feith-Sans",
+        "description": "Demo fonts"})
+
+
+
 def ai_search(request):
     api = viix_api.get_api()
     result = None
