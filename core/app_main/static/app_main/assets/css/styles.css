@@ -8,6 +8,8 @@
 @import url('fonts/pt-sans/pt-sans.css');
 @import url('fonts/fira-sans/fira-sans.css');
 @import url('fonts/assistant/assistant.css');
+@import url('fonts/cabin/cabin.css');
+
 
 :root {
 /*
@@ -303,6 +305,12 @@ body {
 
 .demo-assistant {
   font-family: 'Assistant', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-cabin {
+  font-family: 'Cabin', sans-serif;
   font-size: 16px;
   line-height: 1.75;
 }

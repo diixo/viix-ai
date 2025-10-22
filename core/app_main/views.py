@@ -45,6 +45,10 @@ def demo_5(request):
         "title": "Demo fonts: Assistant",
         "description": "Assistant"})
 
+def demo_6(request):
+    return render(request, "app_main/demo-6.html", context={
+        "title": "Demo fonts: Cabin",
+        "description": "Cabin"})
 
 def ai_search(request):
     api = viix_api.get_api()
