@@ -3,6 +3,8 @@
 @import url('fonts/gilroy/Gilroy.css');
 @import url('fonts/noto-sans/noto-sans.css');
 @import url('fonts/helvetica-now-mt/helvetica-now-mt.css');
+@import url('fonts/source-sans-3/source-sans-3.css');
+@import url('fonts/public-sans/public-sans.css');
 
 :root {
 /*
@@ -268,6 +270,18 @@ body {
 
 .demo-helvetica-now-mt {
   font-family: 'HelveticaNowMTText', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-source-sans-3 {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.demo-public-sans {
+  font-family: 'Public Sans', sans-serif;
   font-size: 16px;
   line-height: 1.75;
 }

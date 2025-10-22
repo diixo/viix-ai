@@ -12,4 +12,6 @@ urlpatterns = [
     path("add-text", views.add_text, name="add-text"),
     path("add-page", views.add_page, name="add-page"),
     path("demo-fonts", views.demo, name="demo-fonts"),
+    path("demo-1", views.demo_1, name="demo-1"),
+    path("demo-2", views.demo_2, name="demo-2"),
 ]

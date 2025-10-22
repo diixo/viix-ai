@@ -17,9 +17,18 @@ def main(request):
 
 def demo(request):
     return render(request, "app_main/demo.html", context={
+        "title": "Demo font: Helvetica",
+        "description": "Demo fonts"})
+
+def demo_1(request):
+    return render(request, "app_main/demo-1.html", context={
         "title": "Demo fonts: Feith-Sans",
         "description": "Demo fonts"})
 
+def demo_2(request):
+    return render(request, "app_main/demo-2.html", context={
+        "title": "Demo fonts: Feith-Sans",
+        "description": "Demo fonts"})
 
 
 def ai_search(request):
