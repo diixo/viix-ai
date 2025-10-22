@@ -9,6 +9,7 @@
 @import url('fonts/fira-sans/fira-sans.css');
 @import url('fonts/assistant/assistant.css');
 @import url('fonts/cabin/cabin.css');
+@import url('fonts/golos-text/golos-text.css');
 
 
 :root {
@@ -311,6 +312,12 @@ body {
 
 .demo-cabin {
   font-family: 'Cabin', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-golos-text {
+  font-family: 'Golos Text', sans-serif;
   font-size: 16px;
   line-height: 1.75;
 }
