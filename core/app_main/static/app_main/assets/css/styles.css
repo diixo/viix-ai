@@ -12,6 +12,7 @@
 @import url('fonts/golos-text/golos-text.css');
 @import url('fonts/pt-sans-caption/pt-sans-caption.css');
 @import url('fonts/work-sans/work-sans.css');
+@import url('fonts/nata-sans/nata-sans.css');
 
 :root {
 /*
@@ -331,6 +332,12 @@ body {
 
 .demo-work-sans {
   font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-nata-sans {
+  font-family: 'Nata Sans', sans-serif;
   font-size: 16px;
   line-height: 1.75;
 }
