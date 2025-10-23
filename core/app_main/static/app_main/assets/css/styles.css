@@ -11,7 +11,7 @@
 @import url('fonts/cabin/cabin.css');
 @import url('fonts/golos-text/golos-text.css');
 @import url('fonts/pt-sans-caption/pt-sans-caption.css');
-
+@import url('fonts/work-sans/work-sans.css');
 
 :root {
 /*
@@ -325,6 +325,12 @@ body {
 
 .demo-pt-sans-caption {
   font-family: 'PT Sans Caption', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-work-sans {
+  font-family: 'Work Sans', sans-serif;
   font-size: 16px;
   line-height: 1.75;
 }
