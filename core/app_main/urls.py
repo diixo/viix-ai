@@ -19,4 +19,5 @@ urlpatterns = [
     path("demo-5", views.demo_5, name="demo-5"),
     path("demo-6", views.demo_6, name="demo-6"),
     path("demo-7", views.demo_7, name="demo-7"),
+    path("demo-8", views.demo_8, name="demo-8"),
 ]

@@ -10,6 +10,7 @@
 @import url('fonts/assistant/assistant.css');
 @import url('fonts/cabin/cabin.css');
 @import url('fonts/golos-text/golos-text.css');
+@import url('fonts/pt-sans-caption/pt-sans-caption.css');
 
 
 :root {
@@ -318,6 +319,12 @@ body {
 
 .demo-golos-text {
   font-family: 'Golos Text', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-pt-sans-caption {
+  font-family: 'PT Sans Caption', sans-serif;
   font-size: 16px;
   line-height: 1.75;
 }
