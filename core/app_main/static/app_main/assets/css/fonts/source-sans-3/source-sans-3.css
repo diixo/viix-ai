@@ -5,6 +5,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Source Sans 3";
   src: url("static/SourceSans3-Bold.ttf") format("truetype");
