@@ -13,6 +13,8 @@
 @import url('fonts/pt-sans-caption/pt-sans-caption.css');
 @import url('fonts/work-sans/work-sans.css');
 @import url('fonts/nata-sans/nata-sans.css');
+@import url('fonts/vend-sans/vend-sans.css');
+
 
 :root {
 /*
@@ -338,6 +340,12 @@ body {
 
 .demo-nata-sans {
   font-family: 'Nata Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-vend-sans {
+  font-family: 'Vend Sans', sans-serif;
   font-size: 16px;
   line-height: 1.75;
 }

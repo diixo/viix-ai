@@ -70,6 +70,11 @@ def demo_10(request):
         "title": "Demo fonts: Nata-Sans",
         "description": "Nata Sans"})
 
+def demo_11(request):
+    return render(request, "app_main/demo-11.html", context={
+        "title": "Demo fonts: Vendor-Sans",
+        "description": "Vendor Sans"})
+
 def ai_search(request):
     api = viix_api.get_api()
     result = None
