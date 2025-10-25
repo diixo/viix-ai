@@ -14,6 +14,7 @@
 @import url('fonts/work-sans/work-sans.css');
 @import url('fonts/nata-sans/nata-sans.css');
 @import url('fonts/vend-sans/vend-sans.css');
+@import url('fonts/tirra/tirra.css');
 
 
 :root {
@@ -346,6 +347,12 @@ body {
 
 .demo-vend-sans {
   font-family: 'Vend Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-tirra {
+  font-family: 'Tirra', sans-serif;
   font-size: 16px;
   line-height: 1.75;
 }
