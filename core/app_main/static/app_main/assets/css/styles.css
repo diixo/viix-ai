@@ -15,6 +15,7 @@
 @import url('fonts/nata-sans/nata-sans.css');
 @import url('fonts/vend-sans/vend-sans.css');
 @import url('fonts/tirra/tirra.css');
+@import url('fonts/reith-sans/reith-sans.css');
 
 
 :root {
@@ -277,6 +278,12 @@ body {
 
 .article {
   font-family: 'Noto Sans', sans-serif;
+}
+
+.demo-reith-sans {
+  font-family: 'BBC-Reith-Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
 }
 
 .demo-helvetica-now-mt {

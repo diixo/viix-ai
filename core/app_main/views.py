@@ -20,6 +20,11 @@ def demo(request):
         "title": "Demo font: Helvetica",
         "description": "Helvetica"})
 
+def demo_0(request):
+    return render(request, "app_main/demo-0.html", context={
+        "title": "Demo fonts: Reith-Sans",
+        "description": "Reith-Sans"})
+
 def demo_1(request):
     return render(request, "app_main/demo-1.html", context={
         "title": "Demo fonts: Source-Sans-3",
