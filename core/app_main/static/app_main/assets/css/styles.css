@@ -16,6 +16,7 @@
 @import url('fonts/vend-sans/vend-sans.css');
 @import url('fonts/tirra/tirra.css');
 @import url('fonts/reith-sans/reith-sans.css');
+@import url('fonts/averta/averta.css');
 
 
 :root {
@@ -360,6 +361,12 @@ body {
 
 .demo-tirra {
   font-family: 'Tirra', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.demo-averta {
+  font-family: 'Averta', sans-serif;
   font-size: 16px;
   line-height: 1.75;
 }
