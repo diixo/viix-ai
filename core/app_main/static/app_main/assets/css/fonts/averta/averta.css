@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "Averta";
+    src: url("AvertaDemoPE.eot");
+    src: url("AvertaDemoPE.eot?#iefix") format("embedded-opentype"),
+    url("AvertaDemoPE.woff2") format("woff2"),
+    url("AvertaDemoPE.woff") format("woff"),
+    url("AvertaDemoPE.ttf") format("truetype");
+}
