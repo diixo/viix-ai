@@ -14,6 +14,8 @@ def main(request):
         "title": "Viix AI-search for AI-tools",
         "description": "AI-search for AI-tools. Combined with AI, it can revolutionize the workplace. Viix brings comprehensive, accurate, and search-based AI"})
 
+def dashboard(request):
+    return render(request, "app_main/dashboard-5.2.html")
 
 def demo(request):
     return render(request, "app_main/demo.html", context={

@@ -26,4 +26,5 @@ urlpatterns = [
     path("demo-11", views.demo_11, name="demo-11"),
     path("demo-12", views.demo_12, name="demo-12"),
     path("demo-a", views.demo_a, name="demo-a"),
+    path("dashboard", views.dashboard, name="dashboard"),
 ]
