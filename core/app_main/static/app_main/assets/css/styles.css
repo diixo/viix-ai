@@ -140,7 +140,7 @@ https://code.visualstudio.com/docs/
 
     /*--bs-sky: #00a0e4;*/
     --bs-sky: #009ce0;
-    --bs-sky-hover: #0080c8;
+    --bs-sky-hover: #008cd0;
 
     --custom-blue: #20b0d8;
 
@@ -167,9 +167,73 @@ https://code.visualstudio.com/docs/
     --ldin-9:#057642;
 }
 
-.bg-light {
-  background-color: #edf2f6 !important;
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
+
+/* collapse-accordion wrapper */
+.collapse-wrapper {
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.collapse-checkbox {
+  display: none;
+}
+
+.collapse-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  /*background-color: #f8f9fa;*/
+  background-color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.collapse-title.bg-base {
+  background-color: #f0f0f0;
+}
+
+.collapse-title::after {
+  content: "\2335";
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.collapse-checkbox:checked + .collapse-title {
+  background-color: #cfe2ff;
+}
+
+.collapse-checkbox:checked + .collapse-title::after {
+  transform: rotate(-180deg);
+}
+
+.collapse-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 1rem;
+  background-color: #fff;
+  border-top: 1px solid #dee2e6;
+}
+
+.collapse-content.bg-base {
+  background-color: #f9f9f9;
+}
+
+.collapse-checkbox:checked ~ .collapse-content {
+  max-height: 500px;
+  padding: 1rem;
+  transition: max-height 1.0s ease, padding 1.0s ease;
+}
+/* end accordion wrapper */
 
 
 .status-closed {
@@ -196,7 +260,7 @@ https://code.visualstudio.com/docs/
 
 /* custom violet button */
 .btn-violet {
-  --bs-btn-font-weight: 500;
+  /*--bs-btn-font-weight: 500;*/
   --bs-btn-color: var(--white);
   --bs-btn-bg: var(--bs-violet-bg);
   --bs-btn-border-color: var(--bs-violet-bg);
@@ -241,6 +305,35 @@ https://code.visualstudio.com/docs/
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: var(--gray);
   --bs-btn-disabled-border-color: var(--gray);
+}
+
+/* aispice version */
+.btn-outline-gray {
+  --bs-btn-color: #212529;
+  --bs-btn-bg: #fff;
+  --bs-btn-border-color: #000;
+  --bs-btn-hover-color: #212529;
+  --bs-btn-hover-bg: #e2e2e2;
+  --bs-btn-hover-border-color: #000;
+  --bs-btn-focus-shadow-rgb: 130, 138, 145;
+  --bs-btn-active-color: #212529;
+  --bs-btn-active-bg: #9094a0;
+  --bs-btn-active-border-color: #8f9aa0;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--gray);
+  --bs-btn-disabled-border-color: var(--gray);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  /*
+  outline: 1px solid var(--bs-btn-border-color);
+  outline-offset: -1px;
+  */
 }
 
 .border-violet {
